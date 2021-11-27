@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="d-flex justify-space-between my-5">
-      <span class="text-h5">Запись: <b>{{ post.title }}</b></span>
+      <span class="title mr-3 text-h5">Запись: <b>{{ title }}</b></span>
       <v-btn color="primary" @click="goBack()">Назад</v-btn>
     </div>
 
@@ -43,7 +43,8 @@ export default {
     return {
       dialog: false,
 
-      post: {}
+      post: {},
+      title: null
     }
   },
 
@@ -67,7 +68,10 @@ export default {
 
       if (_.isEmpty(this.post)) {
         this.goBack()
+        return
       }
+
+      this.title = this.post.title
     },
 
     goBack() {
@@ -89,6 +93,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .v-btn:focus::before {
   opacity: 0 !important;
 }
