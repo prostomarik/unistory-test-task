@@ -136,4 +136,8 @@ export default {
   bottom: 30px;
   right: 30px;
 }
+
+.v-btn:focus::before {
+  opacity: 0 !important;
+}
 </style>
